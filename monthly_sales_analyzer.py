@@ -24,18 +24,41 @@ sales_data = [
 
 def total_sales_by_product(data, product_key):
     """Calculates the total sales of a specific product in 30 days."""
-    pass
+    total = 0
+    for dict in data:
+        for k, v in dict.items():
+            if k == product_key:
+                total += v
+    
+    return total
 
 
 def average_daily_sales(data, product_key):
     """Calculates the average daily sales of a specific product."""
-    pass
+    total = []
+    for dict in data:
+        for k, v in dict.items():
+            if k == product_key:
+                total.append(v)
+    
+    return sum(total)/len(total)
 
 
 def best_selling_day(data):
     """Finds the day with the highest total sales."""
-    pass
-
+    total= []
+    
+    for dict in data:
+        total.append(dict["product_a"]
+        + dict["product_b"] 
+        + dict["product_c"])
+    
+    for dict in data:
+        sum_keys = dict["product_a"] 
+        + dict["product_b"] 
+        + dict["product_c"]
+        if sum_keys == max(total):
+            return dict["day"]
 
 def days_above_threshold(data, product_key, threshold):
     """Counts how many days the sales of a product exceeded a given threshold."""
