@@ -1,7 +1,11 @@
 # Example data
 sales_data = [
-    {"day": 1, "product_a": 202, "product_b": 142, "product_c": 164},
-    {"day": 2, "product_a": 206, "product_b": 121, "product_c": 338},
+    {"day": 1, "product_a": 202, 
+    "product_b": 142, "product_c": 164},
+    {"day": 2, 
+    "product_a": 206, 
+    "product_b": 121, 
+    "product_c": 338},
     {"day": 3, "product_a": 120, "product_b": 152, "product_c": 271},
     {"day": 4, "product_a": 174, "product_b": 137, "product_c": 266},
     {"day": 5, "product_a": 199, "product_b": 153, "product_c": 301},
@@ -62,13 +66,29 @@ def best_selling_day(data):
 
 def days_above_threshold(data, product_key, threshold):
     """Counts how many days the sales of a product exceeded a given threshold."""
-    pass
+    counter = 0
+
+    for dict in data:
+        for k, v in dict.items():
+            if k == product_key and v > threshold:
+                counter += 1
+    
+    return counter
 
 
 def top_product(data):
     """Determines which product had the highest total sales in 30 days."""
-    pass
 
+    counter = []
+
+    for dict in data:
+        for k, v in dict.items():
+            counter.append(v)
+
+    for dict in data:
+        for k, v in dict.items():
+            if v == max(counter):
+                return dict["day"]
 
 
 # Function tests
