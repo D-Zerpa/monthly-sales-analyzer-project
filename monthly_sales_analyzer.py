@@ -88,7 +88,7 @@ def top_product(data):
     for dict in data:
         for k, v in dict.items():
             if v == max(counter):
-                return dict["day"]
+                return k
 
 
 # Function tests
