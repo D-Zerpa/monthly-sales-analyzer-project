@@ -79,16 +79,16 @@ def days_above_threshold(data, product_key, threshold):
 def top_product(data):
     """Determines which product had the highest total sales in 30 days."""
 
-    counter = []
+    product_sum = {
 
-    for dict in data:
-        for k, v in dict.items():
-            counter.append(v)
-
-    for dict in data:
-        for k, v in dict.items():
-            if v == max(counter):
-                return k
+        "product_a": sum([value for dictionary in data for key, value in dictionary.items() if key == "product_a"]),
+        "product_b": sum([value for dictionary in data for key, value in dictionary.items() if key == "product_b"]),   
+        "product_c": sum([value for dictionary in data for key, value in dictionary.items() if key == "product_c"])
+    }
+   
+    for k, v in product_sum.items():
+        if v == max(product_sum.values()):
+            return k 
 
 
 # Function tests
